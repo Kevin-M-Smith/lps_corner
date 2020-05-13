@@ -22,7 +22,7 @@ ENV SWISH_DATA /data
 RUN useradd -m -s /bin/bash $MY_USER
 
 # WORKDIR /home
-RUN git clone https://bitbucket.org/lpsmasters/lps_corner $LPS_DIR && \
+RUN git clone https://github.com/Kevin-M-Smith/lps_corner $LPS_DIR && \
 	cd ${LPS_DIR} && git checkout -q ${LPS_SHA1} && chown -R $MY_USER $LPS_DIR
 #RUN chown -R $MY_USER $LPS_DIR
 
