@@ -15,7 +15,8 @@ create(Host,Port,Pass) :-
     ((client(_,_,_))-> 
     	throw('Redis-cli subprocess already exists; kill it first with kill_all')
     	; true),
-    process_create(path("redis-cli"), ["-h", Host, "-p", Port, "-a", Pass], [detached(true),stdout(pipe(Output)),stdin(pipe(Input)),stderr(std),process(PID)]),
+    %process_create(path("redis-cli"), ["-h", Host, "-p", Port, "-a", Pass], [detached(true),stdout(pipe(Output)),stdin(pipe(Input)),stderr(std),process(PID)]),
+    process_create(path("redis-cli"), ["-h", Host],  [detached(true),stdout(pipe(Output)),stdin(pipe(Input)),stderr(std),process(PID)]),
     assert(client(PID,Output,Input)).
 
 % set/get one key
